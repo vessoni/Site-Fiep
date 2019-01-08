@@ -1,0 +1,45 @@
+/* Css Baby Cão - By Tiago guillande
+	font-family: 'Open Sans', sans-serif;
+	font-family: 'Jaldi', sans-serif;
+ */
+
+
+body{ font-family: 'Open Sans', sans-serif;}
+
+	.LogoBabyCao img {  max-width:100% !important; }
+	.MenuGeral{ float: left; text-align: center; width: 100%; font-family: 'Open Sans', sans-serif; margin-top: 30px; font-weight: bold; font-size: 13px;}
+		.MenuGeral01 {background: #3e4095; color: #fff; padding: 15px; }
+			.MenuGeral01:hover {background: #000; color: #fff}
+		.MenuGeral02 {background: #00a859; color: #fff; padding: 15px; }
+			.MenuGeral02:hover {background: #000; color: #fff}
+		.MenuGeral03 {background: #f3e711; color: #fff; padding: 15px; }
+			.MenuGeral03:hover {background: #000; color: #fff}
+		.MenuGeral04 {background: #ed3237; color: #fff; padding: 15px; }
+			.MenuGeral04:hover {background: #000; color: #fff}
+		.MenuGeral05 {background: #f47c40; color: #fff; padding: 15px;}
+			.MenuGeral05:hover {background: #000; color: #fff}
+		.MenuGeral06 {background: #606062; color: #fff; padding: 15px;}
+			.MenuGeral06:hover {background: #000; color: #fff}
+
+	.BannerFelinos {background: #606062; color: #fff; margin-top: 10px; margin-bottom: 10px; font-family: 'Open Sans', sans-serif;}
+	.BannerCaninos {background: #f47c40; color: #fff; margin-top: 10px; margin-bottom: 10px; font-family: 'Open Sans', sans-serif;}
+
+	.BannerAmenidades1 {background: #f47c40; color: #fff; margin-top: 10px; margin-bottom: 10px; font-family: 'Open Sans', sans-serif;}
+		.BannerAmenidades1 p{font-family: 'Jaldi', sans-serif;}
+	.BannerAmenidades2 {background: #606062; color: #fff; margin-top: 10px; margin-bottom: 10px; font-family: 'Open Sans', sans-serif;}
+		.BannerAmenidades2 p{font-family: 'Jaldi', sans-serif;}
+	.BannerAmenidades3 {background: #3e4095; color: #fff; margin-top: 10px; margin-bottom: 10px; font-family: 'Open Sans', sans-serif;}
+		.BannerAmenidades3 p{font-family: 'Jaldi', sans-serif;}
+	.BannerAmenidades4 {background: #ed3237; color: #fff; margin-top: 10px; margin-bottom: 10px; font-family: 'Open Sans', sans-serif;}
+		.BannerAmenidades4 p{font-family: 'Jaldi', sans-serif;}
+
+	.RodapeBabyCao{min-height: 200px; font-family: 'Open Sans', sans-serif;}
+		.RodapeBabyCao ul li a{text-decoration: none; color: #000}
+		.RodapeBabyCao ul li a:hover{text-decoration: underline; color: #000}
+
+	.TitulosPaginas{font-family: 'Jaldi', sans-serif;}
+	.MinServicos{height: 430px !important;}
+
+		
+
+	img {max-width: 100%;}

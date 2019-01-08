@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+       	<?php echo $this->headTitle(); ?>
+        <link type="text/css" href="<?php echo $this->baseUrl("/static/intranet/bootstrap/css/bootstrap.min.css"); ?>" rel="StyleSheet" />
+        <link type="text/css" href="<?php echo $this->baseUrl("/static/intranet/bootstrap/css/bootstrap-responsive.min.css"); ?>" rel="StyleSheet" />
+        <link type="text/css" href="<?php echo $this->baseUrl("/static/intranet/css/intranet.css"); ?>" rel="StyleSheet" />
+        <link type="text/css" href="<?php echo $this->baseUrl("/static/intranet/css/intranet.form.css"); ?>" rel="StyleSheet" />
+        <link type="text/css" href="<?php echo $this->baseUrl("/global/jquery-ui/css/ui-lightness/jquery-ui-1.8.23.custom.css"); ?>" rel="StyleSheet" />
+        <link type="text/css" href="<?php echo $this->baseUrl("/static/intranet/css/simple-sidebar.css"); ?>" rel="StyleSheet" />
+        <link type="text/css" href="<?php echo $this->baseUrl("/static/js/ckeditor/samples/css/samples.css"); ?>" rel="StyleSheet" />
+
+    </head>
+    <body>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <?php if( $this->authStatus ): ?>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            Fiep
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/banner">Banner</a>
+                    </li>
+                    <li>
+                        <a href="/admin/categoria">Categoria</a>
+                    </li>
+                    <li>
+                        <a href="/admin/subcategoria">SubCategoria</a>
+                    </li>
+                    <li>
+                        <a href="/admin/quemsomos">Quem Somos?</a>
+                    </li>
+
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                    <a href="<?php echo $this->baseUrl('/admin/auth/logout'); ?>" class="btn">
+                        <span class="icon-off"></span> Sair
+                    </a>
+                    </li>
+                </ul>
+
+            <?php endif; ?>
+        </div>
+        <!-- /#sidebar-wrapper -->
+                    <?php echo $this->Layout()->content; ?>
+        </div>
+
+        <script src="<?php echo $this->baseUrl("/static/intranet/bootstrap/js/bootstrap.min.js"); ?>"></script>
+        <script src="<?php echo $this->baseUrl("/static/intranet/js/intranet.js"); ?>"></script>
+        <script src="<?php echo $this->baseUrl("/static/js/ckeditor/ckeditor.js"); ?>"></script>
+        <script src="<?php echo $this->baseUrl("/static/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css"); ?>"></script>
+        <script src="<?php echo $this->baseUrl("/static/js/ckeditor/samples/js/sample.js"); ?>"></script>
+
+
+
+        <script>
+        	initSample();
+        </script>
+    </body>
+</html>
