@@ -3,13 +3,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
        	<?php echo $this->headTitle(); ?>
-        <link type="text/css" href="<?php echo $this->baseUrl("/static/intranet/bootstrap/css/bootstrap.min.css"); ?>" rel="StyleSheet" />
-        <link type="text/css" href="<?php echo $this->baseUrl("/static/intranet/bootstrap/css/bootstrap-responsive.min.css"); ?>" rel="StyleSheet" />
-        <link type="text/css" href="<?php echo $this->baseUrl("/static/intranet/css/intranet.css"); ?>" rel="StyleSheet" />
-        <link type="text/css" href="<?php echo $this->baseUrl("/static/intranet/css/intranet.form.css"); ?>" rel="StyleSheet" />
-        <link type="text/css" href="<?php echo $this->baseUrl("/global/jquery-ui/css/ui-lightness/jquery-ui-1.8.23.custom.css"); ?>" rel="StyleSheet" />
-        <link type="text/css" href="<?php echo $this->baseUrl("/static/intranet/css/simple-sidebar.css"); ?>" rel="StyleSheet" />
-        <link type="text/css" href="<?php echo $this->baseUrl("/static/js/ckeditor/samples/css/samples.css"); ?>" rel="StyleSheet" />
+        <!-- include jquery -->
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+        <!-- include libraries BS -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.css" />
+        <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.5/umd/popper.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.js"></script>
+
 
     </head>
     <body>
@@ -54,16 +55,22 @@
                     <?php echo $this->Layout()->content; ?>
         </div>
 
-        <script src="<?php echo $this->baseUrl("/static/intranet/bootstrap/js/bootstrap.min.js"); ?>"></script>
-        <script src="<?php echo $this->baseUrl("/static/intranet/js/intranet.js"); ?>"></script>
-        <script src="<?php echo $this->baseUrl("/static/js/ckeditor/ckeditor.js"); ?>"></script>
-        <script src="<?php echo $this->baseUrl("/static/js/ckeditor/samples/toolbarconfigurator/lib/codemirror/neo.css"); ?>"></script>
-        <script src="<?php echo $this->baseUrl("/static/js/ckeditor/samples/js/sample.js"); ?>"></script>
+        <!-- include summernote -->
+        <link rel="stylesheet" href="/static/js/summernote-master/dist/summernote-bs4.css">
+        <script type="text/javascript" src="http://localhost/static/js/summernote-master/dist/summernote-bs4.js"></script>
 
+        <link rel="stylesheet" href="example.css">
+        <script type="text/javascript">
+          $(function() {
+            $('.summernote').summernote({
+              height: 200,
+            });
 
-
-        <script>
-        	initSample();
+            $('form').on('submit', function (e) {
+              e.preventDefault();
+              alert($('.summernote').summernote('code'));
+            });
+          });
         </script>
     </body>
 </html>
