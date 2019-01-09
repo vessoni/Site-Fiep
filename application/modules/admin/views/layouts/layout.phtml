@@ -8,69 +8,61 @@
 
         <!-- include libraries BS -->
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.css" />
+        <link rel="stylesheet" href="/static/css/admin.css" />
         <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.5/umd/popper.js"></script>
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.js"></script>
 
 
+
     </head>
+      <?php if( $this->authStatus ): ?>
     <body>
 
-    <div id="wrapper">
+      <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><img src="/static/upload/Fiep.png" alt="" width="60" height="60"> FIEP </a>
+        <ul class="navbar-nav px-3">
+          <li class="nav-item text-nowrap">
+            <a class="nav-link" href="<?php echo $this->baseUrl('/admin/auth/logout');?> ">Logout</a>
+          </li>
+        </ul>
+      </nav>
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <?php if( $this->authStatus ): ?>
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="#">
-                            Fiep
+            <div style="margin-top: 10px;"class="container-fluid">
+              <div class="row">
+
+                <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                  <div style="margin-top: 10px;" class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                      <li class="nav-item">
+                        <a class="nav-link active" href="/admin/banner">
+                          <span data-feather="home"></span>
+                          Banner
                         </a>
-                    </li>
-                    <li>
-                        <a href="/admin/banner">Banner</a>
-                    </li>
-                    <li>
-                        <a href="/admin/categoria">Categoria</a>
-                    </li>
-                    <li>
-                        <a href="/admin/subcategoria">SubCategoria</a>
-                    </li>
-                    <li>
-                        <a href="/admin/quemsomos">Quem Somos?</a>
-                    </li>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/admin/categoria">
+                          <span data-feather="file"></span>
+                          Menu - Categorias
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="/admin/subcategoria">
+                          <span data-feather="shopping-cart"></span>
+                          Menu - SubCategoria
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                          <?php echo $this->Layout()->content; ?>
 
-                    <li>
-                        <a href="#"></a>
-                    </li>
-                    <li>
-                    <a href="<?php echo $this->baseUrl('/admin/auth/logout'); ?>" class="btn">
-                        <span class="icon-off"></span> Sair
-                    </a>
-                    </li>
-                </ul>
+                </main>
+              </div>
+            </div>
 
-            <?php endif; ?>
-        </div>
-        <!-- /#sidebar-wrapper -->
-                    <?php echo $this->Layout()->content; ?>
-        </div>
-
-        <!-- include summernote -->
-        <link rel="stylesheet" href="/static/js/summernote-master/dist/summernote-bs4.css">
-        <script type="text/javascript" src="http://localhost/static/js/summernote-master/dist/summernote-bs4.js"></script>
-
-        <link rel="stylesheet" href="example.css">
-        <script type="text/javascript">
-          $(function() {
-            $('.summernote').summernote({
-              height: 200,
-            });
-
-            $('form').on('submit', function (e) {
-              e.preventDefault();
-              alert($('.summernote').summernote('code'));
-            });
-          });
-        </script>
     </body>
+  <?php else: ?>
+    <?php echo $this->Layout()->content; ?>
+  <?php endif; ?>
 </html>

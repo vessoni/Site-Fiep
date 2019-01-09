@@ -23,7 +23,7 @@ class Admin_categoriaController extends App_Controller_Action
                 $atividade = new Application_Model_Atena_CategoriaMdl();
                 $dadosProcessados = array(
                     "nome" =>  $data['nome'],
-                  "descricao" => $data['descricao'],
+                    "descricao" => $data['descricao'],
                     "ativo" => 1,
                 );
                 $atividade->_insert($dadosProcessados);
@@ -45,7 +45,7 @@ class Admin_categoriaController extends App_Controller_Action
             );
 
             $atividades->_update($dadosProcessados);
-            $this->_redirect('/admin/prob');
+            $this->_redirect('/admin/categoria');
         }
 
         if($tipo == 2){
@@ -56,7 +56,7 @@ class Admin_categoriaController extends App_Controller_Action
             );
 
             $atividades->_update($dadosProcessados);
-            $this->_redirect('/admin/prob');
+            $this->_redirect('/admin/categoria');
 
         }
 

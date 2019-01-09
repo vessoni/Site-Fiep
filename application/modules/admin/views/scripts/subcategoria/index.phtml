@@ -1,3 +1,7 @@
+<!-- include summernote -->
+<link rel="stylesheet" href="/static/js/summernote-master/dist/summernote-bs4.css">
+<script type="text/javascript" src="/static/js/summernote-master/dist/summernote-bs4.js"></script>
+
 <div id="page-content-wrapper">
 	<div class="container-fluid">
 		<div class="row">
@@ -32,10 +36,10 @@
 
 						<!-- Textarea -->
 						<div class="form-group">
-							<label class="col-md-4 control-label" for="textarea">Descrição &nbsp</label>
-							<div class="col-md-4">
-								<textarea class="form-control" id="descricao" name="descricao"></textarea>
-							</div>
+							<label class="col-md-4 control-label" for="nome">Descricao  &nbsp</label><br>
+							<form method="post">
+									<textarea id="summernote" name="descricao"></textarea>
+							</form>
 						</div><br>
 						<div class="form-group">
 							<label class="col-md-4 control-label" for="caminho"></label>
@@ -68,7 +72,7 @@
 					        <tr>
 					          <th scope="row"><?php echo $item['idcategoria'] ?>.<?php echo $item1['idtipo'] ?></th>
 					          <td><?php echo $item1['nome'] ?></td>
-					          <td><?php echo substr($item1['descricao'], 0, 20); ?>...</td>
+					          <td><?php echo $item1['descricao'] ?>...</td>
 					          <td><a href="categoria/excluir/id/<?php echo $item1['idtipo'];?>/tipo/2"><button type="button" class="btn btn-danger">Excluir</button></a></td>
 					        </tr>
 					      <?php } ?>
@@ -83,3 +87,42 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+    $(function() {
+
+        $('#summernote').summernote({
+            height: 500,
+            minHeight: null,
+            maxHeight: null,
+            focus: true,
+            callbacks: {
+                onImageUpload: function(files) {
+                    editor = $(this);
+                    doTheUpload(files[0], editor);
+                }
+            }
+        });
+
+        function doTheUpload(uploadedImage, myEditor) {
+            var myForm = new FormData();
+            myForm.append("imageField", uploadedImage);
+            $.ajax({
+                url: "/static/js/summernote-master/editor-upload.php",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: myForm,
+                type: "post",
+                success: function(imageUrl) {
+                    var image = $('<img>').attr('src', imageUrl);
+                    $(myEditor).summernote("insertNode", image[0]);
+                },
+                error: function(myForm) {
+                    console.log(myForm);
+                }
+            });
+        }
+
+    });
+</script>

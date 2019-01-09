@@ -1,3 +1,7 @@
+<!-- include summernote -->
+<link rel="stylesheet" href="/static/js/summernote-master/dist/summernote-bs4.css">
+<script type="text/javascript" src="/static/js/summernote-master/dist/summernote-bs4.js"></script>
+
 <div id="page-content-wrapper">
 	<div class="container-fluid">
 		<div class="row">
@@ -15,11 +19,9 @@
 								<input id="tipo" name="tipo" type="hidden" value="1" class="form-control input-md">
 							</div><br>
 							<label class="col-md-4 control-label" for="nome">Descricao  &nbsp</label><br>
-							<div class="grid-container">
-								<div class="grid-width-100">
-									<textarea name="descricao" id="editor">&lt;p&gt;Initial editor content.&lt;/p&gt;</textarea>
-								</div>
-							</div>
+							<form method="post">
+   								<textarea id="summernote" name="descricao"></textarea>
+ 							</form>
 						</div>
 						<br>
 						<div class="form-group">
@@ -58,3 +60,42 @@
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+    $(function() {
+
+        $('#summernote').summernote({
+            height: 500,
+            minHeight: null,
+            maxHeight: null,
+            focus: true,
+            callbacks: {
+                onImageUpload: function(files) {
+                    editor = $(this);
+                    doTheUpload(files[0], editor);
+                }
+            }
+        });
+
+        function doTheUpload(uploadedImage, myEditor) {
+            var myForm = new FormData();
+            myForm.append("imageField", uploadedImage);
+            $.ajax({
+                url: "/static/js/summernote-master/editor-upload.php",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: myForm,
+                type: "post",
+                success: function(imageUrl) {
+                    var image = $('<img>').attr('src', imageUrl);
+                    $(myEditor).summernote("insertNode", image[0]);
+                },
+                error: function(myForm) {
+                    console.log(myForm);
+                }
+            });
+        }
+
+    });
+</script>

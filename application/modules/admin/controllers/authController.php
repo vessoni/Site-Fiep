@@ -60,4 +60,3 @@ class Admin_authController extends App_Controller_Action
 
 
 }
-
