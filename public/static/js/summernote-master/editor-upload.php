@@ -1,7 +1,7 @@
 <?php
-$path = "";
 $return_value = "";
-$path = "C:\\xampp\\htdocs\\public\\static\\upload\\images\\";
+$pieces = explode('\\', dirname(__FILE__));
+$path = $pieces[0].'\\'.$pieces[1].'\\'.$pieces[2].'\\'.$pieces[3].'\\static\\upload\\images\\';
 
 if (!file_exists($path)) {
     mkdir($path);
@@ -30,4 +30,3 @@ if ($_FILES['imageField']['name']) {
 }
 
 echo $return_value;
-?>
