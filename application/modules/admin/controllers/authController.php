@@ -1,22 +1,23 @@
-﻿<?php
+<?php
 
 class Admin_authController extends App_Controller_Action
 {
 
     public function indexAction()
     {
+
         $form = new Admin_Form_Login();
         $this->view->form = $form;
 
         if ($this->_request->isPost()) {
-        	if ($form->isValid($this->data)) {
-        		$authAdapter = $this->getAuthAdapter();
+            if ($form->isValid($this->data)) {
+                $authAdapter = $this->getAuthAdapter();
         		$authAdapter->setIdentity($this->data['login'])
         			->setCredential(md5($this->data['senha']));
 
-        		$result = $authAdapter->authenticate();
+                $result = $authAdapter->authenticate();
 
-        		if ($result->isValid()) {
+                if ($result->isValid()) {
         			$auth = Zend_Auth::getInstance();
         			$auth->setStorage(new Zend_Auth_Storage_Session('admin'));
         			$dataAuth = $authAdapter->getResultRowObject(null, 'senha');
@@ -57,6 +58,4 @@ class Admin_authController extends App_Controller_Action
 
     	$this->_redirect("/admin");
     }
-
-
 }
