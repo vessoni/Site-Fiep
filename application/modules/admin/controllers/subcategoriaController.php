@@ -25,6 +25,15 @@ class Admin_subcategoriaController extends App_Controller_Action
         if ($this->_request->isPost()) {
             $data = $this->_request->getPost();
 
+            if ($data['tipo'] == 1){
+                $atividade = new Application_Model_Atena_CategoriaMdl();
+                $dadosProcessados = array(
+                    "nome" =>  $data['nome'],
+                    "ativo" => 1,
+                );
+                $atividade->_insert($dadosProcessados);
+                $this->_redirect('/admin/categoria');
+            }else{
                 $atividade = new Application_Model_Atena_tipoMdl();
                 $dadosProcessados = array(
                     "nome" =>  $data['nome'],
@@ -33,7 +42,10 @@ class Admin_subcategoriaController extends App_Controller_Action
                     "categoria_idcategoria" => $data['categoria']
                 );
                 $atividade->_insert($dadosProcessados);
-                $this->_redirect('/admin/subcategoria');
+                $this->_redirect('/admin/categoria');
+            }
+
+
 
         }
 

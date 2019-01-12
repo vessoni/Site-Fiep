@@ -34,10 +34,7 @@ class Admin_categoriaController extends App_Controller_Action
 
     public function excluirAction()
     {
-        //$id = $this->_request->getParam("id");
-        $tipo = $this->_request->getParam("tipo");
 
-        if($tipo == NULL){
             $atividades = new Application_Model_Atena_CategoriaMdl();
             $dadosProcessados = array(
                 "idcategoria" => $this->_request->getParam("id"),
@@ -46,19 +43,6 @@ class Admin_categoriaController extends App_Controller_Action
 
             $atividades->_update($dadosProcessados);
             $this->_redirect('/admin/categoria');
-        }
-
-        if($tipo == 2){
-            $atividades = new Application_Model_Atena_TipoMdl();
-            $dadosProcessados = array(
-                "idtipo" => $this->_request->getParam("id"),
-                "ativo" =>  0,
-            );
-
-            $atividades->_update($dadosProcessados);
-            $this->_redirect('/admin/categoria');
-
-        }
 
     }
 
