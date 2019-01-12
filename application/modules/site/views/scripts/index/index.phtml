@@ -49,257 +49,72 @@
 <div class="black-wrapper">
   <div class="container inner">
     <div class="section-title text-center">
-      <h1>Ações</h1>
+      <h1>Eventos</h1>
       <span class="icon"><i class="icon-picture"></i></span> </div>
-    <div class="owl-portfolio owlcarousel carousel-th">
-      <div class="item">
-        <figure class="icon-overlay medium icn-link"> <a href="portfolio-post.html"><img src="/static/slowave/style/images/art/p1.jpg" alt="" /></a></figure>
-        <div class="image-caption">
-          <h3><a href="portfolio-post.html">Vintage Badges</a></h3>
-          <span class="meta">Logo, Corporate</span> </div>
-      </div>
-      <!-- /.item -->
-      <div class="item">
-        <figure class="icon-overlay medium icn-link"> <a href="portfolio-post2.html"><img src="/static/slowave/style/images/art/p2.jpg" alt="" /></a></figure>
-        <div class="image-caption">
-          <h3><a href="portfolio-post2.html">Stationery Branding</a></h3>
-          <span class="meta">Identity, Branding</span> </div>
-      </div>
-      <!-- /.item -->
-      <div class="item">
-        <figure class="icon-overlay medium icn-link"> <a href="portfolio-post3.html"><img src="/static/slowave/style/images/art/p3.jpg" alt="" /></a></figure>
-        <div class="image-caption">
-          <h3><a href="portfolio-post3.html">Bi-fold Mockup</a></h3>
-          <span class="meta">Leaflet, Business</span> </div>
-      </div>
-      <!-- /.item -->
-      <div class="item">
-        <figure class="icon-overlay medium icn-link"> <a href="portfolio-post4.html"><img src="/static/slowave/style/images/art/p4.jpg" alt="" /></a></figure>
-        <div class="image-caption">
-          <h3><a href="portfolio-post4.html">Infographic Elements</a></h3>
-          <span class="meta">Flat, Graphic</span> </div>
-      </div>
-      <!-- /.item -->
-      <div class="item">
-        <figure class="icon-overlay medium icn-link"> <a href="portfolio-post.html"><img src="/static/slowave/style/images/art/p5.jpg" alt="" /></a></figure>
-        <div class="image-caption">
-          <h3><a href="portfolio-post.html">Business Cards</a></h3>
-          <span class="meta">Branding, Corporate</span> </div>
-      </div>
-      <!-- /.item -->
-      <div class="item">
-        <figure class="icon-overlay medium icn-link"> <a href="portfolio-post2.html"><img src="/static/slowave/style/images/art/p6.jpg" alt="" /></a></figure>
-        <div class="image-caption">
-          <h3><a href="portfolio-post2.html">Cover Disk Mockup</a></h3>
-          <span class="meta">PSD, Music</span> </div>
-      </div>
-      <!-- /.item -->
-      <div class="item">
-        <figure class="icon-overlay medium icn-link"> <a href="portfolio-post3.html"><img src="/static/slowave/style/images/art/p7.jpg" alt="" /></a></figure>
-        <div class="image-caption">
-          <h3><a href="portfolio-post3.html">Gist iPhone App</a></h3>
-          <span class="meta">Application, Mobile</span> </div>
-      </div>
-      <!-- /.item -->
-    </div>
+            <div class="owl-portfolio owlcarousel carousel-th">
+                <?php foreach ($this->eventos as $item): ?>
+                    <div class="item">
+                        <figure class="icon-overlay medium icn-link"> <a href="portfolio-post.html"><img src="/static/upload/images/<?php echo $item['img_destaque'] ?>" alt="" /></a></figure>
+                        <div class="image-caption">
+                            <h3><a href="portfolio-post.html"><?php echo $item['nome'] ?></a></h3>
+                            <span class="meta"><?php echo $item['resumo'] ?></span> </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
     <!-- /.owlcarousel -->
     <div class="divide50"></div>
-    <div class="text-center"> <a class="btn btn-border-light" href="portfolio2.html">See All Work</a> </div>
+    <div class="text-center"> <a class="btn btn-border-light" href="portfolio2.html">Veja todos</a> </div>
   </div>
 </div>
-<div class="light-wrapper">
-  <div class="container inner">
-    <div class="tabs services tab-container">
-      <div class="panel-container">
-        <div class="tab-block" id="tab-1">
-          <h2 class="slab"><span class="colored">Creativity</span> is important for us</h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor.</p>
-        </div>
-        <!-- /.tab-block -->
-        <div class="tab-block" id="tab-2">
-          <h2 class="slab">We bring <span class="colored">rapid solutions</span></h2>
-          <p class="lead">Nullam id dolor id nibh ultricies vehicula ut id elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-        </div>
-        <!-- /.tab-block -->
-        <div class="tab-block" id="tab-3">
-          <h2 class="slab"><span class="colored">Magic touch</span> is the key</h2>
-          <p class="lead">Cras mattis consectetur purus sit amet fermentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac.</p>
-        </div>
-        <!-- /.tab-block -->
-        <div class="tab-block" id="tab-4">
-          <h2 class="slab">Our designs won <span class="colored">many awards</span></h2>
-          <p class="lead">Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod.</p>
-        </div>
-        <!-- /.tab-block -->
-      </div>
-      <!-- /.panel-container -->
-      <ul class="etabs row">
-        <li class="tab col-sm-3"><a href="#tab-1">
-          <div class="pin"></div>
-          <div class="root"></div>
-          <div class="icon"><i class="icon-picons-bulb icn"></i></div>
-          <h4>Creative Ideas</h4>
-          </a></li>
-        <li class="tab col-sm-3"><a href="#tab-2">
-          <div class="pin"></div>
-          <div class="root"></div>
-          <div class="icon"><i class="icon-picons-rocket icn"></i></div>
-          <h4>Rapid Solutions</h4>
-          </a></li>
-        <li class="tab col-sm-3"><a href="#tab-3">
-          <div class="pin"></div>
-          <div class="root"></div>
-          <div class="icon"><i class="icon-picons-lab icn"></i></div>
-          <h4>Magic Touch</h4>
-          </a></li>
-        <li class="tab col-sm-3"><a href="#tab-4">
-          <div class="pin"></div>
-          <div class="root"></div>
-          <div class="icon"><i class="icon-picons-award icn"></i></div>
-          <h4>Award Winning</h4>
-          </a></li>
-      </ul>
-      <!-- /.etabs -->
-    </div>
-    <!-- /.tabs -->
-
-  </div>
-  <!-- /.container -->
-</div>
-<!-- /.light-wrapper -->
 
 <div class="dark-wrapper">
   <div class="container inner">
     <div class="section-title text-center">
-      <h2>Meet The Team</h2>
+      <h1>Ações</h1>
       <span class="icon"><i class="icon-users"></i></span> </div>
     <div class="owl-team owlcarousel carousel-th team">
-      <div class="item">
-        <figure> <img src="/static/slowave/style/images/art/team1.jpg" alt="" /></figure>
-        <div class="image-caption">
-          <h3>Nikolas Brooten</h3>
-          <span class="meta">Sales Manager</span>
-          <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Praesent commodo cursus magna, vel scelerisque nisl. Nulla vitae elit libero.</p>
-          <ul class="social">
-            <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-            <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-            <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-            <li><a href="#"><i class="icon-s-linkedin"></i></a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- /.item -->
 
-      <div class="item">
-        <figure> <img src="/static/slowave/style/images/art/team2.jpg" alt="" /></figure>
-        <div class="image-caption">
-          <h3>Coriss Ambady</h3>
-          <span class="meta">Marketing Specialist</span>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis. Integer posuere erat a ante venenatis.</p>
-          <ul class="social">
-            <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-            <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-            <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-            <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- /.item -->
 
-      <div class="item">
-        <figure> <img src="/static/slowave/style/images/art/team3.jpg" alt="" /></figure>
-        <div class="image-caption">
-          <h3>Barclay Widerski</h3>
-          <span class="meta">Computer Engineer</span>
-          <p>Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit.</p>
-          <ul class="social">
-            <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-            <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-            <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-            <li><a href="#"><i class="icon-s-linkedin"></i></a></li>
-            <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- /.item -->
 
-      <div class="item">
-        <figure> <img src="/static/slowave/style/images/art/team4.jpg" alt="" /></figure>
-        <div class="image-caption">
-          <h3>Elsie Spear</h3>
-          <span class="meta">Strategy Director</span>
-          <p>Maecenas faucibus mollis interdum. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis.</p>
-          <ul class="social">
-            <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-            <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-            <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-            <li><a href="#"><i class="icon-s-linkedin"></i></a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- /.item -->
+        <?php foreach ($this->acoes as $item): ?>
 
-      <div class="item">
-        <figure> <img src="/static/slowave/style/images/art/team5.jpg" alt="" /></figure>
-        <div class="image-caption">
-          <h3>Connor Gibson</h3>
-          <span class="meta">Interface Designer</span>
-          <p>Aenean lacinia bibendum nulla sed consectetur. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Pellentesque ornare sem lacinia.</p>
-          <ul class="social">
-            <li><a href="#"><i class="icon-s-twitter"></i></a></li>
-            <li><a href="#"><i class="icon-s-facebook"></i></a></li>
-            <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
-            <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
-          </ul>
-        </div>
-      </div>
-      <!-- /.item -->
+
+            <div class="item">
+                <figure> <img src="/static/upload/images/<?php echo $item['img_destaque'] ?>" alt="" /></figure>
+                <div class="image-caption">
+                    <span class="meta"><?php echo $item['nome'] ?></span>
+                    <p><?php echo $item['resumo'] ?></p>
+                </div>
+            </div>
+            <!-- /.item -->
+        <?php endforeach; ?>
     </div>
     <!-- /.owlcarousel -->
+      <div class="divide50"></div>
+      <div class="text-center"> <a class="btn btn-border-light" href="portfolio2.html">Veja todos</a> </div>
+
   </div>
 </div>
 <div class="light-wrapper">
   <div class="container inner">
     <div class="section-title text-center bm20">
-      <h2>From the Latest Articles</h2>
+      <h1>Destaques</h1>
       <span class="icon"><i class="icon-pencil"></i></span> </div>
-    <div class="thin text-center">
-      <p class="lead">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Aenean lacinia bibendum consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper.</p>
-    </div>
     <div class="divide30"></div>
     <div class="latest-blog-wrapper">
       <div class="latest-blog">
-        <div class="post">
-          <figure class="icon-overlay medium icn-link"><a href="blog-post.html"><img src="/static/slowave/style/images/art/b1.jpg" alt="" /></a></figure>
-          <div class="post-content">
-            <h3 class="post-title"><a href="blog-post.html">Adipiscing Mollis Inceptos</a></h3>
-            <div class="meta"><span class="date">13 Nov, 2012</span> <span class="comments"><a href="#">3 Comments</a></span></div>
-            <p>Aenean leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Curabitur blandit tempus porttitor.</p>
-          </div>
-        </div>
-        <div class="post">
-          <figure class="icon-overlay medium icn-link"><a href="blog-post.html"><img src="/static/slowave/style/images/art/b2.jpg" alt="" /></a></figure>
-          <div class="post-content">
-            <h3 class="post-title"><a href="blog-post.html">Ridiculus Ultricies Pellentesque</a></h3>
-            <div class="meta"><span class="date">02 Jan, 2013</span> <span class="comments"><a href="#">5 Comments</a></span></div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-        </div>
-        <div class="post">
-          <figure class="icon-overlay medium icn-link"><a href="blog-post.html"><img src="/static/slowave/style/images/art/b3.jpg" alt="" /></a></figure>
-          <div class="post-content">
-            <h3 class="post-title"><a href="blog-post.html">Tristique Purus Pharetra</a></h3>
-            <div class="meta"><span class="date">14 Mar, 2013</span> <span class="comments"><a href="#">2 Comments</a></span></div>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum.</p>
-          </div>
-        </div>
-        <div class="post">
-          <figure class="icon-overlay medium icn-link"><a href="blog-post.html"><img src="/static/slowave/style/images/art/b4.jpg" alt="" /></a></figure>
-          <div class="post-content">
-            <h3 class="post-title"><a href="blog-post.html">Inceptos Porta Nibh</a></h3>
-            <div class="meta"><span class="date">23 Dec, 2013</span> <span class="comments"><a href="#">7 Comments</a></span></div>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Curabitur blandit tempus porttitor. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-          </div>
+
+          <?php foreach ($this->destaques as $item): ?>
+              <div class="post">
+                  <figure class="icon-overlay medium icn-link"><a href="blog-post.html"><img src="/static/upload/images/<?php echo $item['img_destaque'] ?>" alt="" /></a></figure>
+                  <div class="post-content">
+                      <h3 class="post-title"><a href="blog-post.html"><?php echo $item['nome'] ?></a></h3>
+                      <p><?php echo $item['resumo'] ?></p>
+                  </div>
+              </div>
+              <!-- /.item -->
+          <?php endforeach; ?>
+
         </div>
       </div>
     </div>
@@ -308,7 +123,7 @@
 <div class="dark-wrapper">
   <div class="container inner">
     <div class="section-title text-center">
-      <h2>Share The Love</h2>
+      <h1>Redes sociais</h1>
       <span class="icon"><i class="icon-globe"></i></span> </div>
     <div class="share text-center"> <a href="#" class="btn share-facebook">Like</a> <a href="#" class="btn share-twitter">Tweet</a> <a href="#" class="btn share-googleplus">+1</a> <a href="#" class="btn share-pinterest">Pin It</a> </div>
   </div>

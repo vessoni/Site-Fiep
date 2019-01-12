@@ -7,8 +7,7 @@ abstract class Application_Model_Abstract {
 
 	public function findBy($where, $order = null, $offset = null)
 	{
-		$select = $this->_dbTable
-		->select();
+		$select = $this->_dbTable->select();
 
 		if (!is_null($where)) {
 			foreach ($where as $key => $condition) {
@@ -65,7 +64,7 @@ abstract class Application_Model_Abstract {
             $select->limit($limit);
         }
 
-        //echo $select; die;
+       //echo $select; die;
         return $select->query()->fetchAll();
     }
 
