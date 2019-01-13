@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="/static/slowave/style/images/favicon.png">
-<title>Slowave</title>
+<link rel="shortcut icon" href="/static/upload/favicon.png">
+<title>FIEP</title>
 <!-- Bootstrap core CSS -->
 <link href="/static/slowave/style/css/bootstrap.css" rel="stylesheet">
 <link href="/static/slowave/style/css/settings.css" rel="stylesheet">
@@ -33,7 +33,7 @@
       <div class="container">
         <div class="basic-wrapper">
            <a class="btn responsive-menu pull-right" data-toggle="collapse" data-target=".navbar-collapse"><i class='icon-menu-1'></i></a>
-          <a class="navbar-brand" href="index.html"><img src="/static/upload/Fiep.png" data-at2x="/static/slowave/style/images/logo@2x.png" alt="" width="100px"/></a>
+          <a class="navbar-brand" href="/"><img src="/static/upload/Fiep.png" data-at2x="/static/slowave/style/images/logo@2x.png" alt="" width="100px"/></a>
         </div>
         <div class="collapse navbar-collapse pull-right">
           <ul class="nav navbar-nav">
@@ -42,7 +42,7 @@
                     <ul class="dropdown-menu">
                       <?php foreach ($this->atividades1 as $item1): ?>
                           <?php if ($item1['categoria_idcategoria'] == $item['idcategoria']){?>
-                              <li><a href="index.html"><?php echo $item1['nome'] ?></a></li>
+                              <li><a href="/view/interna/id/<?php echo $item1['idtipo'];?>"><?php echo $item1['nome'] ?></a></li>
                           <?php } ?>
                     <?php endforeach; ?>
                     </ul>

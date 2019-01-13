@@ -1,0 +1,25 @@
+<div class="light-wrapper">
+    <div class="container inner">
+        <div class="section-title text-center bm20">
+            <h1> <?php echo $this->categoria['nome'] ?></h1>
+            <span class="icon"><i class="icon-pencil"></i></span> </div>
+        <div class="divide30"></div>
+        <div class="latest-blog-wrapper">
+            <div class="latest-blog">
+
+                <?php foreach ($this->subcategorias as $item): ?>
+                    <div class="post">
+                        <figure class="icon-overlay medium icn-link"><a href="blog-post.html"><img src="/static/upload/images/<?php echo $item['img_destaque'] ?>" alt="" /></a></figure>
+                        <div class="post-content">
+                            <h3 class="post-title"><a href="blog-post.html"><?php echo $item['nome'] ?></a></h3>
+                            <p><?php echo $item['resumo'] ?></p>
+                        </div>
+                    </div>
+                    <!-- /.item -->
+                <?php endforeach; ?>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>

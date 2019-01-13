@@ -59,11 +59,12 @@
                             <h3><a href="portfolio-post.html"><?php echo $item['nome'] ?></a></h3>
                             <span class="meta"><?php echo $item['resumo'] ?></span> </div>
                     </div>
+                    <?php $link2 = $item['categoria_idcategoria'] ?>
                 <?php endforeach; ?>
             </div>
     <!-- /.owlcarousel -->
     <div class="divide50"></div>
-    <div class="text-center"> <a class="btn btn-border-light" href="portfolio2.html">Veja todos</a> </div>
+      <div class="text-center"> <a class="btn btn-border-light" href="/view/<?php echo $link2?>">Veja todos</a> </div>
   </div>
 </div>
 
@@ -87,11 +88,12 @@
                 </div>
             </div>
             <!-- /.item -->
+            <?php $link3 = $item['categoria_idcategoria'] ?>
         <?php endforeach; ?>
     </div>
     <!-- /.owlcarousel -->
       <div class="divide50"></div>
-      <div class="text-center"> <a class="btn btn-border-light" href="portfolio2.html">Veja todos</a> </div>
+      <div class="text-center"> <a class="btn btn-border-light" href="/view/<?php echo $link3?>">Veja todos</a> </div>
 
   </div>
 </div>
@@ -113,12 +115,13 @@
                   </div>
               </div>
               <!-- /.item -->
+          <?php $link4 = $item['categoria_idcategoria'] ?>
           <?php endforeach; ?>
 
         </div>
       </div>
     </div>
-    <div class="text-center"> <a class="btn btn-border-light" href="portfolio2.html">Veja todos</a> </div>
+    <div class="text-center"> <a class="btn btn-border-light" href="/view/<?php echo $link4?>">Veja todos</a> </div>
   </div>
 </div>
 <div class="dark-wrapper">
