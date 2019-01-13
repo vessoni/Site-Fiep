@@ -33,24 +33,36 @@
                 <nav class="col-md-2 d-none d-md-block bg-light sidebar">
                   <div style="margin-top: 10px;" class="sidebar-sticky">
                     <ul class="nav flex-column">
-                      <li class="nav-item">
-                        <a class="nav-link active" href="/admin/banner">
-                          <span data-feather="home"></span>
-                          Banner
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/admin/categoria">
-                          <span data-feather="file"></span>
-                          Menu - Categorias
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/admin/subcategoria">
-                          <span data-feather="shopping-cart"></span>
-                          Menu - SubCategoria
-                        </a>
-                      </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/banner">
+
+                                Banner
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/categoria">
+
+                                Menu - Categorias
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/subcategoria">
+
+                                Menu - SubCategoria
+                            </a>
+                        </li>
+
+                        <?php foreach ($this->menu as $item): ?>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/admin/categoria/<?php echo $item['idcategoria'] ?>">
+                                    <span data-feather="home"></span>
+                                    <?php echo $item['nome'] ?>
+                                </a>
+                            </li>
+
+                        <?php endforeach; ?>
+
                     </ul>
                   </div>
                 </nav>

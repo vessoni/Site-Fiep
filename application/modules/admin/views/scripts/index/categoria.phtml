@@ -1,0 +1,77 @@
+<!-- include summernote -->
+<link rel="stylesheet" href="/static/js/summernote-master/dist/summernote-bs4.css">
+<script type="text/javascript" src="/static/js/summernote-master/dist/summernote-bs4.js"></script>
+
+<div id="page-content-wrapper">
+	<div class="container-fluid">
+		<div class="row">
+
+
+
+            <form action="" role="form" class="form-horizontal" id="form" method="post" enctype="multipart/form-data">
+                <fieldset>
+
+                    <legend><?php echo $this->categoria['nome'] ?></legend>
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="nome">Nome  &nbsp</label>
+                        <div class="col-md-4">
+                            <input id="nome" name="nome" type="text" placeholder="" class="form-control input-md" value="<?php echo $this->categoria['nome'] ?>">
+                        </div><br>
+                        <label class="col-md-4 control-label" for="nome">Descricao  &nbsp</label><br>
+                        <form method="post">
+                            <textarea id="summernote" name="descricao"><?php echo $this->categoria['descricao'] ?></textarea>
+                        </form>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="caminho"></label>
+                        <div class="col-md-4">
+                            <button type="submit" id="" name="" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+     	</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+
+        $('#summernote').summernote({
+            height: 500,
+            minHeight: null,
+            maxHeight: null,
+            focus: true,
+            callbacks: {
+                onImageUpload: function(files) {
+                    editor = $(this);
+                    doTheUpload(files[0], editor);
+                }
+            }
+        });
+
+        function doTheUpload(uploadedImage, myEditor) {
+            var myForm = new FormData();
+            myForm.append("imageField", uploadedImage);
+            $.ajax({
+                url: "/static/js/summernote-master/editor-upload.php",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: myForm,
+                type: "post",
+                success: function(imageUrl) {
+                    var image = $('<img>').attr('src', imageUrl);
+                    $(myEditor).summernote("insertNode", image[0]);
+                },
+                error: function(myForm) {
+                    console.log(myForm);
+                }
+            });
+        }
+
+    });
+</script>

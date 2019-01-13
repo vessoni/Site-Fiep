@@ -27,6 +27,12 @@ abstract class App_Controller_Action extends Zend_Controller_Action {
             //$this->userEmail = $auth->getIdentity()->email;
         }
 
+        $menu = new Application_Model_Atena_CategoriaMdl();
+        $this->view->menu = $menu->fetchAll(
+            array(
+                'ativo = ?' => 1)
+        );
+
         $this->view->userNome = $this->userNome;
         $this->view->authStatus = $this->authStatus;
     }

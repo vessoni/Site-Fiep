@@ -62,7 +62,6 @@
 				    <tr>
 				      <th>#</th>
 				      <th>Nome</th>
-				      <th>Descrição</th>
 				      <th>Ação</th>
 				    </tr>
 				    </thead>
@@ -72,7 +71,6 @@
 					        <tr>
 					          <th scope="row"><?php echo $item['idcategoria'] ?>.<?php echo $item1['idtipo'] ?></th>
 					          <td><?php echo $item1['nome'] ?></td>
-					          <td><?php echo $item1['descricao'] ?>...</td>
 					          <td><a href="subcategoria/excluir/id/<?php echo $item1['idtipo'];?>"><button type="button" class="btn btn-danger">Excluir</button></a></td>
 					        </tr>
 					      <?php } ?>
