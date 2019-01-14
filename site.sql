@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 08-Jan-2019 às 18:39
+-- Generation Time: 14-Jan-2019 às 02:39
 -- Versão do servidor: 10.1.37-MariaDB
 -- versão do PHP: 5.6.39
 
@@ -39,7 +39,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`idadmin`, `login`, `senha`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3');
+(1, 'admin', '0192023a7bbd73250516f069df18b500');
 
 -- --------------------------------------------------------
 
@@ -59,7 +59,8 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`idbanner`, `nome`, `caminho`, `ativo`) VALUES
-(0, 'Teste', 'cms.png', '1');
+(2, 'Banner 1 ', 'slider-bg1.jpg', '1'),
+(3, 'Banner 2', 'slider-bg3.jpg', '1');
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,7 @@ INSERT INTO `banner` (`idbanner`, `nome`, `caminho`, `ativo`) VALUES
 CREATE TABLE `categoria` (
   `idcategoria` int(11) NOT NULL,
   `nome` varchar(45) DEFAULT NULL,
-  `descricao` varchar(45) DEFAULT NULL,
+  `descricao` text,
   `ativo` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -79,9 +80,31 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`idcategoria`, `nome`, `descricao`, `ativo`) VALUES
-(1, 'teste1', NULL, '1'),
-(2, 'Categoria2 ', NULL, '1'),
-(3, 'Teste', '<p>12312312&nbsp;</p>\r\n\r\n<figure class=\"easyi', '1');
+(1, 'Fiep', '<p>Sobre - Fiep 213213</p>', '1'),
+(2, 'Eventos', '<p>About - Eventos 213</p>', '1'),
+(3, 'Ações', '', '1'),
+(4, 'Destaques', '<p>About - Destaques</p>', '1'),
+(5, 'Cursos', '<p>About - Cursos</p>', '1'),
+(6, 'Fiep', '<p>Sobre - Fiep213</p>', NULL),
+(7, 'Fiep', '<p>Sobre - Fiep</p>', NULL),
+(8, 'Fiep', '<p>Sobre - Fiep 213</p>', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `footer`
+--
+
+CREATE TABLE `footer` (
+  `idfooter` int(11) NOT NULL,
+  `coluna1` varchar(220) DEFAULT NULL,
+  `coluna2_titulo` varchar(45) DEFAULT NULL,
+  `coluna2_descricao` varchar(150) DEFAULT NULL,
+  `endereço` varchar(45) DEFAULT NULL,
+  `telefone` varchar(45) DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `ativo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -116,13 +139,40 @@ CREATE TABLE `imagens_tipo` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `newsletter`
+--
+
+CREATE TABLE `newsletter` (
+  `idnewsletter` int(11) NOT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `ativo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tag`
+--
+
+CREATE TABLE `tag` (
+  `idtag` int(11) NOT NULL,
+  `nome` varchar(45) DEFAULT NULL,
+  `ativo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tipo`
 --
 
 CREATE TABLE `tipo` (
   `idtipo` int(11) NOT NULL,
   `nome` varchar(45) DEFAULT NULL,
-  `descricao` varchar(45) DEFAULT NULL,
+  `resumo` varchar(100) NOT NULL,
+  `descricao` text,
+  `icon` varchar(100) NOT NULL,
+  `img_destaque` varchar(100) NOT NULL,
   `ativo` varchar(45) DEFAULT NULL,
   `categoria_idcategoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -131,8 +181,31 @@ CREATE TABLE `tipo` (
 -- Extraindo dados da tabela `tipo`
 --
 
-INSERT INTO `tipo` (`idtipo`, `nome`, `descricao`, `ativo`, `categoria_idcategoria`) VALUES
-(1, '123123', '123', '1', 1);
+INSERT INTO `tipo` (`idtipo`, `nome`, `resumo`, `descricao`, `icon`, `img_destaque`, `ativo`, `categoria_idcategoria`) VALUES
+(1, 'Quem Somos?', '', '<p>About quem somos</p>', 'icon-picons-earth', '', '1', 1),
+(2, 'Missão', '', '<p>About&nbsp; - Missão</p>', 'icon-picons-rocket', '', '1', 1),
+(3, 'Objetivos', '', '<p>About - Objetivos</p>', 'icon-picons-bulb', '', '1', 1),
+(4, 'Jogo Beneficente ', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore', '<p><img src=\"/static/upload/images/0.88529800 1547229693-jogo-gremio-548x342.jpg\" class=\"note-float-right\" style=\"float: right;\"><span style=\"font-family: &quot;Open Sans&quot;, sans-serif; font-size: 16px; background-color: rgb(232, 235, 237);\">Dia 11/03/17 o Delegado Regional da FIEP-RS, o professor Everton Deiques foi convidado pelo ex atleta Brandão da Base dos anos 80 do Grêmio e hoje profissional de Educação Fisica, para representar a federação em um jogo beneficente pelo Grêmio em Tramandaí. Na oportunidade foi convidado também o Delegado Adjunto Paulo Lopes, porém o mesmo não pode comparecer.&nbsp;</span><br style=\"font-family: &quot;Open Sans&quot;, sans-serif; font-size: 16px; background-color: rgb(232, 235, 237);\"><span style=\"font-family: &quot;Open Sans&quot;, sans-serif; font-size: 16px; background-color: rgb(232, 235, 237);\">O objetivo do jogo era arrecadar alimentos para famílias carentes do litoral gaúcho.&nbsp;</span><br style=\"font-family: &quot;Open Sans&quot;, sans-serif; font-size: 16px; background-color: rgb(232, 235, 237);\"><span style=\"font-family: &quot;Open Sans&quot;, sans-serif; font-size: 16px; background-color: rgb(232, 235, 237);\">Diversos ex-atletas participaram entre eles Choco do futsal, Danrlei ex-goleiro e Nildo campeão da Copa do Brasil em 1994.&nbsp;</span></p><p><span style=\"font-family: &quot;Open Sans&quot;, sans-serif; font-size: 16px; background-color: rgb(232, 235, 237);\"><br></span><br></p>', '', '0.88529800 1547229693-jogo-gremio-548x342.jpg', '1', 3),
+(5, 'Teste 2', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore ', '<p>Teste 2</p>', '', '0.88529800 1547229693-jogo-gremio-548x342.jpg', '1', 3),
+(6, 'Teste 3', '', 'Teste 3', '', '', '0', 1),
+(7, 'teste 3', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore', '<p>teste 3</p>', '', '0.88529800 1547229693-jogo-gremio-548x342.jpg', '1', 3),
+(8, 'teste 4', '', '<p>Teste 4</p>', '', '', '0', 1),
+(9, 'teste 4', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore', '<p>teste 4</p>', '', '0.88529800 1547229693-jogo-gremio-548x342.jpg', '1', 3),
+(10, 'teste 1', '', '', '', '', '0', 1),
+(11, 'teste 2', '', '<p>teste 2</p>', '', '', '0', 1),
+(12, '33º CONGRESSO INTERNACIONAL DE EDUCAÇÃO FÍSIC', 'Lorem ipsum dolor sit amet, consectetur cons', '<p>De 13 a 17/01/18, foi realizado, em Foz do Iguaçu no Paraná, mais um grande evento da FIEP. O já famoso congresso internacional.&nbsp;</p><p>Diversos gaúchos no evento, onde estavam presentes, ministrando cursos, cerimonial de abertura.&nbsp;</p><p>O momento solene importante foi a entrega da placa de homenagem ao CONFEF que o Delegado Regional concedeu em razão dos 20 anos de regulamentação pela nossa profissão.&nbsp;</p><p> </p><center><img src=\"/static/upload/images/0.21050800 1547317932-desenho.png\"></center><br><p></p>', '', '0.21050800 1547317932-desenho.png', '1', 4),
+(13, 'DANÇA DE SALÃO EM PELOTAS COM MARCELO GRANGEI', 'Lorem ipsum dolor sit amet, consectetur cons', '<p><span style=\"font-size: 0.875rem;\">Logo após o almoço, Deiques e Grangeiro pegaram a estrada novamente, rumo a Pelotas. Após 280 km e 3h30min de viagem, foram recepcionadas pelas Divulgadoras Suelen Pedroso e Juliana Pereira que realizaram um ótimo trabalho atingindo em torno de 25 casais no hotel Curi.&nbsp;</span><br></p><p>A Delegacia ainda entregou uma lembrança as Divulgadoras pelo trabalho realizado no município.&nbsp;</p><p>Por volta das 21h, novamente Deiques e Grangeiro foram para estrada e desta vez foi para encarar 245 km por um período de 3h10min, pois já no outro dia de manhã, dia 21/05 domingo, haveria o Movimenta Canoas no município.&nbsp;</p><p><img src=\"/static/upload/images/0.00815800 1547318032-pelotas-2-777x626.jpg\"><br></p>', '', '0.00815800 1547318032-pelotas-2-777x626.jpg', '1', 4),
+(14, '123123', 'Lorem ipsum dolor sit amet, consectetur cons', '<p>123123321</p>', '', '0.00815800 1547318032-pelotas-2-777x626.jpg', '1', 4),
+(15, '21313', 'Lorem ipsum dolor sit amet, consectetur cons', '<p>123123</p>', '', '0.00815800 1547318032-pelotas-2-777x626.jpg', '1', 4),
+(16, '213123123', 'Lorem ipsum dolor sit amet, consectetur cons', '<p>123123213123</p>', '', '0.00815800 1547318032-pelotas-2-777x626.jpg', '1', 4),
+(17, 'Lorem ipsum dolor sit amet, consectetur adipi', 'Lorem ipsum dolor sit amet, consectetur cons', '<p><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span><br></p>', '', 'evento.jpg', '0', 1),
+(18, 'Lorem ipsum dolor sit amet, consectetur adipi', 'Lorem ipsum dolor sit amet, consectetur cons', '<p><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><br></p>', '', 'evento.jpg', '1', 2),
+(19, 'Lorem ipsum dolor sit amet, consectetur adipi', 'Lorem ipsum dolor sit amet, consectetur cons', '<p><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><br></p>', '', 'evento.jpg', '1', 2),
+(20, 'Lorem ipsum dolor sit amet, consectetur adipi', 'Lorem ipsum dolor sit amet, consectetur cons', '<p><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><br></p>', '', 'evento.jpg', '1', 2),
+(21, 'Lorem ipsum dolor sit amet, consectetur adipi', 'Lorem ipsum dolor sit amet, consectetur cons', '<p><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><span style=\"font-family: &quot;Open Sans&quot;, Arial, sans-serif; text-align: justify; font-size: 0.875rem;\">Lorem ipsum dolor sit amet, consectetur adipiscing eli</span><br></p>', '', 'evento.jpg', '1', 2),
+(22, 'Destaque Teste', '', '', '', '', '0', 4),
+(23, 'Destaque Teste', '', '  <div class=\"dark-wrapper\">\r\n    <div class=\"container inner\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-8\">\r\n          <div class=\"owl-slider-wrapper\">\r\n            <div class=\"owl-portfolio-slider owl-carousel\">\r\n              <div class=\"item\"> <img src=\"style/images/art/ppi1.jpg\" alt=\"\"> </div>\r\n              <div class=\"item\"> <img src=\"style/images/art/ppi2.jpg\" alt=\"\"> </div>\r\n            </div>\r\n            <div class=\"owl-custom-nav\"> <a class=\"slider-prev\"></a> <a class=\"slider-next\"></a> </div>\r\n          </div>\r\n        </div>\r\n        <!-- /.col-sm-8 -->\r\n        <div class=\"col-sm-4 lp30\">\r\n          <h3>Project Details</h3>\r\n          <p> Maecenas sed diam eget risus varius blandit sit amet non magna. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante.</p>\r\n          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.</p>\r\n          <div class=\"divide5\"></div>\r\n          <ul class=\"item-details\">\r\n            <li><span>Date:</span> 02 May 2013</li>\r\n            <li><span>Categories:</span> Illustration, Branding</li>\r\n            <li><span>Client:</span> Sit Commodo Sollicitudin</li>\r\n            <li><span>Link:</span> <a href=\"http://elemisfreebies.com\">http://elemisfreebies.com</a></li>\r\n          </ul>\r\n        </div>\r\n        <!-- /.col-sm-4 --> \r\n      </div>\r\n      <!-- /.row --> \r\n      \r\n    </div>\r\n    <!-- /.container --> \r\n  </div>', '', '', '0', 4),
+(24, 'Destaques Teste', '', '  <div class=\"dark-wrapper\">\r\n    <div class=\"container inner\">\r\n      <div class=\"row\">\r\n        <div class=\"col-sm-8\">\r\n          <div class=\"owl-slider-wrapper\">\r\n            <div class=\"owl-portfolio-slider owl-carousel\">\r\n              <div class=\"item\"> <img src=\"http://localhost:8080/static/slowave/style/images/art/ppi1.jpg\" alt=\"\"> </div>\r\n              <div class=\"item\"> <img src=\"http://localhost:8080/static/slowave/style/images/art/ppi2.jpg\" alt=\"\"> </div>\r\n            </div>\r\n            <div class=\"owl-custom-nav\"> <a class=\"slider-prev\"></a> <a class=\"slider-next\"></a> </div>\r\n          </div>\r\n        </div>\r\n        <!-- /.col-sm-8 -->\r\n        <div class=\"col-sm-4 lp30\">\r\n          <h3>Project Details</h3>\r\n          <p> Maecenas sed diam eget risus varius blandit sit amet non magna. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Integer posuere erat a ante.</p>\r\n          <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis.</p>\r\n          <div class=\"divide5\"></div>\r\n          <ul class=\"item-details\">\r\n            <li><span>Date:</span> 02 May 2013</li>\r\n            <li><span>Categories:</span> Illustration, Branding</li>\r\n            <li><span>Client:</span> Sit Commodo Sollicitudin</li>\r\n            <li><span>Link:</span> <a href=\"http://elemisfreebies.com\">http://elemisfreebies.com</a></li>\r\n          </ul>\r\n        </div>\r\n        <!-- /.col-sm-4 --> \r\n      </div>\r\n      <!-- /.row --> \r\n      \r\n    </div>\r\n    <!-- /.container --> \r\n  </div>', '', '', '1', 4);
 
 --
 -- Indexes for dumped tables
@@ -157,6 +230,12 @@ ALTER TABLE `categoria`
   ADD PRIMARY KEY (`idcategoria`);
 
 --
+-- Indexes for table `footer`
+--
+ALTER TABLE `footer`
+  ADD PRIMARY KEY (`idfooter`);
+
+--
 -- Indexes for table `imagens_categoria`
 --
 ALTER TABLE `imagens_categoria`
@@ -171,6 +250,18 @@ ALTER TABLE `imagens_tipo`
   ADD KEY `fk_imagens_subcategoria_subCategoria1_idx` (`tipo_idtipo`);
 
 --
+-- Indexes for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  ADD PRIMARY KEY (`idnewsletter`);
+
+--
+-- Indexes for table `tag`
+--
+ALTER TABLE `tag`
+  ADD PRIMARY KEY (`idtag`);
+
+--
 -- Indexes for table `tipo`
 --
 ALTER TABLE `tipo`
@@ -182,10 +273,22 @@ ALTER TABLE `tipo`
 --
 
 --
+-- AUTO_INCREMENT for table `banner`
+--
+ALTER TABLE `banner`
+  MODIFY `idbanner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idcategoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `footer`
+--
+ALTER TABLE `footer`
+  MODIFY `idfooter` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `imagens_categoria`
@@ -200,10 +303,16 @@ ALTER TABLE `imagens_tipo`
   MODIFY `idimagens_subcategoria` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `newsletter`
+--
+ALTER TABLE `newsletter`
+  MODIFY `idnewsletter` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `tipo`
 --
 ALTER TABLE `tipo`
-  MODIFY `idtipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idtipo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
