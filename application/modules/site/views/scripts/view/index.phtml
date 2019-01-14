@@ -9,9 +9,9 @@
 
                 <?php foreach ($this->subcategorias as $item): ?>
                     <div class="post">
-                        <figure class="icon-overlay medium icn-link"><a href="blog-post.html"><img src="/static/upload/images/<?php echo $item['img_destaque'] ?>" alt="" /></a></figure>
+                        <figure class="icon-overlay medium icn-link"><a href="/view/interna/id/<?php echo $item['idtipo'] ?>"><img src="/static/upload/images/<?php echo $item['img_destaque'] ?>" alt="" /></a></figure>
                         <div class="post-content">
-                            <h3 class="post-title"><a href="blog-post.html"><?php echo $item['nome'] ?></a></h3>
+                            <h3 class="post-title"><a href="/view/interna/id/<?php echo $item['idtipo'] ?>"><?php echo $item['nome'] ?></a></h3>
                             <p><?php echo $item['resumo'] ?></p>
                         </div>
                     </div>
