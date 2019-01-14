@@ -15,7 +15,7 @@ class site_IndexController extends Zend_Controller_Action
       $atividades1 = new Application_Model_Atena_TipoMdl();
       $this->view->atividades1 = $atividades1->fetchAll(
           array(
-              'ativo = ?' => 1)
+              'ativo = ?' => 1),"idtipo desc"
       );
 
       $footer = new Application_Model_Atena_FooterMdl();
@@ -32,7 +32,6 @@ class site_IndexController extends Zend_Controller_Action
               'ativo = ?' => 1)
       );
 
-
         $fazemos = new Application_Model_Atena_TipoMdl();
         $this->view->fazemos = $fazemos->fetchAll(
             array(
@@ -44,7 +43,8 @@ class site_IndexController extends Zend_Controller_Action
         $this->view->eventos = $eventos->fetchAll(
             array(
                 'ativo = ?' => 1,
-                'categoria_idcategoria = ?' => 2)
+                'categoria_idcategoria = ?' => 2),
+            'idtipo desc'
         );
 
 
@@ -52,7 +52,8 @@ class site_IndexController extends Zend_Controller_Action
         $this->view->acoes = $acoes->fetchAll(
             array(
                 'ativo = ?' => 1,
-                'categoria_idcategoria = ?' => 3)
+                'categoria_idcategoria = ?' => 3),
+            'idtipo desc'
         );
 
         $destaques = new Application_Model_Atena_TipoMdl();
@@ -60,7 +61,7 @@ class site_IndexController extends Zend_Controller_Action
             array(
                 'ativo = ?' => 1,
                 'categoria_idcategoria = ?' => 4),
-            '',
+            'idtipo desc',
             '4'
         );
 

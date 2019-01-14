@@ -5,9 +5,16 @@
 
       <?php foreach ($this->banner as $item): ?>
         <li data-transition="fade"> <img src="/static/upload/banner/<?php echo $item['caminho'] ?>"> alt="" />
-          <!-- <div class="caption sfb bold text-center" data-x="center" data-y="198" data-speed="900" data-start="800" data-easing="Sine.easeOut">Hello! This is Slowave</div>
-          <div class="caption sfb lite small text-center" data-x="center" data-y="258" data-speed="900" data-start="1500" data-easing="Sine.easeOut">A responsive site template with a clean and profession design <br />that will be a great solution for your business, portfolio, blog or any other purpose.</div>
-          <div class="caption sfb" data-x="center" data-y="353" data-speed="900" data-start="2200" data-easing="Sine.easeOut"><a href="#" class="btn btn-large">Purchase Now</a></div> -->
+
+            <?php if ($item['frase1'] != ''){?>
+                <div class="caption sfb bold text-center" data-x="center" data-y="198" data-speed="900" data-start="800" data-easing="Sine.easeOut"><?php echo $item['frase1'] ?></div>
+            <?php } ?>
+            <?php if ($item['frase2']!= ''){?>
+                <div class="caption sfb bold small text-center" data-x="center" data-y="258" data-speed="900" data-start="1500" data-easing="Sine.easeOut"><?php echo $item['frase2'] ?></div>
+            <?php } ?>
+            <?php if ($item['botao']!= ''){?>
+                <div class="caption sfb" data-x="center" data-y="353" data-speed="900" data-start="2200" data-easing="Sine.easeOut"><a href="<?php echo $item['link'] ?>" class="btn btn-large"><?php echo $item['botao'] ?></a></div>
+            <?php } ?>
         </li>
 
       <?php endforeach; ?>

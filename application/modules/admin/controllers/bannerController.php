@@ -60,6 +60,10 @@ class Admin_bannerController extends App_Controller_Action
             $dadosProcessados = array(
                 "nome" =>  $data['nome'],
                 "caminho" =>  $_FILES['arquivo']['name'] ,
+                "frase1" => $data['frase1'],
+                "frase2" => $data['frase2'],
+                "botao" => $data['botao'],
+                "link" => $data['link'],
                 "ativo" => 1,
             );
 
