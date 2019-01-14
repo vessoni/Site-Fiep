@@ -1,40 +1,55 @@
 <!-- include summernote -->
 <link rel="stylesheet" href="/static/js/summernote-master/dist/summernote-bs4.css">
 <script type="text/javascript" src="/static/js/summernote-master/dist/summernote-bs4.js"></script>
+<link href="/static/slowave/style/type/fontello.css" rel="stylesheet">
+<link href="/static/slowave/style/type/picons.css" rel="stylesheet">
+<link href="/static/slowave/style/type/budicons.css" rel="stylesheet">
 
 <div id="page-content-wrapper">
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col">
-            <form action="" role="form" class="form-horizontal" id="form" method="post" enctype="multipart/form-data">
-                <fieldset>
+			<form action="" role="form" id="form" method="post" enctype="multipart/form-data">
 
-                    <legend><?php echo $this->subcategoria['nome'] ?></legend>
-                    <!-- Text input-->
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="nome">Nome  &nbsp</label>
-                        <div class="col-md-12">
-                            <input id="nome" name="nome" type="text" placeholder="" class="form-control input-md" value="<?php echo $this->subcategoria['nome'] ?>">
-                        </div><br>
-                        <label class="col-md-4 control-label" for="nome">Descricao  &nbsp</label><br>
-                        <form method="post">
-                            <textarea id="summernote" name="descricao"><?php echo $this->subcategoria['descricao'] ?></textarea>
-                        </form>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <label class="col-md-4 control-label" for="caminho"></label>
-                        <div class="col-md-4">
-                            <button type="submit" id="" name="" class="btn btn-primary">Salvar</button>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
-			</div>
-			<div class="col">
+									<div class="col">
 
+						                    <legend><?php echo $this->subcategoria['nome'] ?></legend>
+						                    <!-- Text input-->
+						                    <div class="form-group">
+						                        <label class="col-md-4 control-label" for="nome">Nome  &nbsp</label>
+						                        <div class="col-md-12">
+						                            <input id="nome" name="nome" type="text" placeholder="" class="form-control input-md" value="<?php echo $this->subcategoria['nome'] ?>">
+						                        </div><br>
+																		<label class="col-md-4 control-label" for="resumo">Resumo (100 caracteres)  &nbsp</label>
+						                        <div class="col-md-12">
+						                            <input id="resumo" name="resumo" type="text" placeholder="" class="form-control input-md" value="<?php echo $this->subcategoria['resumo'] ?>">
+						                        </div><br>
+						                        <label class="col-md-4 control-label" for="nome">Descricao  &nbsp</label><br>
+						                        <form method="post">
+						                            <textarea id="summernote" name="descricao"><?php echo $this->subcategoria['descricao'] ?></textarea>
+						                        </form>
+																		<label class="col-md-4 control-label" for="img_destaque">Imagem Destaque  &nbsp</label>
+																		<div class="col-md-12">
+																			<input name="arquivo" type="file" />
+																			<img width="160px" src="/static/upload/images/<?php echo $this->subcategoria['img_destaque'] ?>" alt="" />
+																		</div>
+																		<label class="col-md-4 control-label" for="icon">Icon  &nbsp</label>
+																		<div class="col-md-12">
+																				<input id="icon" name="icon" type="text" placeholder="" class="form-control input-md" value="<?php echo $this->subcategoria['icon'] ?>"><br>
+																				<i class="<?php echo $this->subcategoria['icon'] ?> icn" style="font-size: 50px"></i>
+																				<a href="/static/slowave/icons.html" > Exemplo Icons </a>
+																		</div><br>
+						                    </div>
+						                    <br>
+						                    <div class="form-group">
+						                        <label class="col-md-4 control-label" for="caminho"></label>
+						                        <div class="col-md-4">
+						                            <button type="submit" id="" name="" class="btn btn-primary">Salvar</button>
+						                        </div>
+						                    </div>
 
-	    </div>
+									</div>
+
+			</form>
 		</div>
 	</div>
 </div>
