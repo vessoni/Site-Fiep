@@ -88,7 +88,7 @@
 							<th scope="row"><?php echo $item['idcategoria'] ?></th>
 							<td><?php echo $item['nome'] ?></td>
 							<td><button class="btn-warning"> CATEGORIA</button></td>
-							<td><a href="prob/excluir/id/<?php echo $item['idcategoria'];?>"><button type="button" class="btn btn-danger" onclick="return confirm('Deletando a categoria as subcategorias serão todas deletadas');"">Excluir</button></a></td>
+							<td><a href="categoria/excluir/id/<?php echo $item['idcategoria'];?>"><button type="button" class="btn btn-danger" onclick="return confirm('Deletando a categoria as subcategorias serão todas deletadas');"">Excluir</button></a></td>
 						</tr>
 
 						<?php foreach ($this->atividades1 as $item1): ?>
@@ -97,7 +97,7 @@
 									<th scope="row"><?php echo $item['idcategoria'] ?>.<?php echo $item1['idtipo'] ?></th>
 									<td><?php echo $item1['nome'] ?></td>
 									<td><?php echo substr($item1['descricao'], 0, 20); ?>...</td>
-									<td><a href="prob/excluir/id/<?php echo $item1['idtipo'];?>/tipo/2"><button type="button" class="btn btn-danger">Excluir</button></a></td>
+									<td><a href="categoria/excluir/id/<?php echo $item1['idtipo'];?>/tipo/2"><button type="button" class="btn btn-danger">Excluir</button></a></td>
 								</tr>
 							<?php } ?>
 

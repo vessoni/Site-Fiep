@@ -10,52 +10,27 @@ class Admin_footerController extends App_Controller_Action
 
     public function indexAction()
     {
+
         $footer = new Application_Model_Atena_FooterMdl();
-        $this->view->footer = $footer->fetchAll(
-            array(
-                'ativo = ?' => 1)
-        );
+        $this->view->footer = $footer->find(1);
 
-        $tag = new Application_Model_Atena_TagMdl();
-        $this->view->tag = $tag->fetchAll(
-            array(
-                'ativo = ?' => 1)
-        );
+        if ($this->_request->isPost()) {
+            $data = $this->_request->getPost();
+                $footer = new Application_Model_Atena_FooterMdl();
+                $dadosProcessados = array(
+                    "idfooter" => 1,
+                    "coluna1" =>  $data['coluna1'],
+                    "coluna2_titulo" =>  $data['coluna2_titulo'],
+                    "coluna2_descricao" =>  $data['coluna2_descricao'],
+                    "endereco" =>  $data['endereco'],
+                    "telefone" =>  $data['telefone'],
+                    "email" =>  $data['email']
+                );
 
-
-
-    }
-
-    public function excluirAction()
-    {
-
-
-
-        if($tipo == NULL){
-            $atividades = new Application_Model_Atena_CategoriaMdl();
-            $dadosProcessados = array(
-                "idcategoria" => $this->_request->getParam("id"),
-                "ativo" =>  0,
-            );
-
-            $atividades->_update($dadosProcessados);
-            $this->_redirect('/admin/prob');
+                $footer->_update($dadosProcessados);
+                $this->_redirect('/admin/footer');
         }
-
-        if($tipo == 2){
-            $atividades = new Application_Model_Atena_TipoMdl();
-            $dadosProcessados = array(
-                "idtipo" => $this->_request->getParam("id"),
-                "ativo" =>  0,
-            );
-
-            $atividades->_update($dadosProcessados);
-            $this->_redirect('/admin/prob');
-
-        }
-
     }
 
 
 }
-

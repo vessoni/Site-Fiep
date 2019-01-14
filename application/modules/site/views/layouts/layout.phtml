@@ -67,8 +67,7 @@
         <div class="col-sm-4">
           <div class="widget"> <img src="/static/upload/Fiep.png" data-at2x="/static/slowave/style/images/logo@2x.png" alt="" width="25%"/>
             <div class="divide20"></div>
-            <p>Aenean lacinia bibendum nulla sed leo posuere erat a ante venenatis dapibus posuere velit aliquet. Donec ullamcorper metus auctor fringi. Nullam quis risus. </p>
-            <p>Vestibulum id ligula porta  euismod semper. Maecenas faucibus mollis.</p>
+            <p><?php echo $this->footer['coluna1']?></p>
             <div class="divide5"></div>
             <ul class="social">
               <li><a href="#"><i class="icon-s-rss"></i></a></li>
@@ -84,23 +83,21 @@
 
         <div class="col-sm-4">
           <div class="widget">
-            <h3 class="section-title widget-title upper">Get In Touch</h3>
-            <p>Fusce dapibus, tellus commodo, tortor mauris condimentum utellus fermentum, porta sem malesuada magna. Sed posuere consectetur est at lobortis.</p>
+            <h3 class="section-title widget-title upper"><?php echo $this->footer['coluna2_titulo']?></h3>
+            <p><?php echo $this->footer['coluna2_descricao']?></p>
             <div class="divide10"></div>
-            <div class="contact-info"> <i class="icon-location"></i> Moonshine St. 14/05 Light City <br />
-              <i class="icon-phone"></i>+00 (123) 456 78 90 <br />
-              <i class="icon-mail"></i> <a href="first.last@email.com">first.last@email.com</a> </div>
+            <div class="contact-info"> <i class="icon-location"></i><?php echo $this->footer['endereco']?> <br />
+              <i class="icon-phone"></i><?php echo $this->footer['telefone']?> <br />
+              <i class="icon-mail"></i> <a href="first.last@email.com"><?php echo $this->footer['email']?></a> </div>
           </div>
         </div>
         <!-- /col -->
 
         <div class="col-sm-4">
-          <div class="widget">
-            <h3 class="section-title widget-title upper">Tags</h3>
-            <div class="tagcloud"> <a href="#" style="font-size: 9pt;">blogroll</a> <a href="#" style="font-size: 19pt;">daily</a> <a href="#" style="font-size: 9pt;">dialog</a> <a href="#" style="font-size: 9pt;">gallery</a> <a href="#" style="font-size: 10pt;">journal</a> <a href="#" style="font-size: 9pt;">link</a> <a href="#" style="font-size: 12pt;">motion</a> <a href="#" style="font-size: 9pt;">music</a> <a href="#" style="font-size: 20pt;">photo</a> <a href="#" style="font-size: 13pt;">professional</a> <a href="#" style="font-size: 16pt;">quotation</a> <a href="#" style="font-size: 9pt;">show</a> <a href="#" style="font-size: 15pt;">sound</a> <a href="#" style="font-size: 9pt;">tv</a> <a href="#" style="font-size: 9pt;">video</a> <a href="#" style="font-size: 9pt;">gift</a> <a href="#" style="font-size: 19pt;">label</a> <a href="#" style="font-size: 9pt;">christmas</a> </div>
-          </div>
+
           <!-- /.widget -->
-          <div class="divide30"></div>
+          <div class="divide80"></div>
+          <div class="divide50"></div>
           <div class="widget">
             <h3 class="section-title widget-title upper">Newsletter</h3>
             <form id="newsletter" class="form-inline newsletter" role="form">
@@ -122,14 +119,7 @@
 
     <div class="sub-footer">
       <div class="container">
-        <p class="pull-left">© 2019 Desenvolvido por <a href="alexandrevessoni.com">Alexandre Vessoni.</a> </p>
-        <ul class="footer-menu pull-right">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
+        <center><p>© 2019 Desenvolvido por <a href="alexandrevessoni.com">Alexandre Vessoni.</a> </p></center>
       </div>
     </div>
   </footer>

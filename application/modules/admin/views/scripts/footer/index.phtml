@@ -1,0 +1,95 @@
+<!-- include summernote -->
+<link rel="stylesheet" href="/static/js/summernote-master/dist/summernote-bs4.css">
+<script type="text/javascript" src="/static/js/summernote-master/dist/summernote-bs4.js"></script>
+
+<div id="page-content-wrapper">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<form action="" role="form" class="form-horizontal" id="form" method="post" enctype="multipart/form-data">
+					<fieldset>
+
+						<legend>Footer</legend>
+
+						<!-- Text input-->
+						<div class="   form-group">
+							<label class="col-md-12 control-label" for="coluna1">Coluna 1  &nbsp</label>
+							<div class="col-md-4">
+								<input id="coluna1" name="coluna1" type="text" placeholder="" class="form-control input-md" value="<?php echo $this->footer['coluna1']?>">
+							</div><br>
+							<label class="col-md-12 control-label" for="coluna2_titulo">Coluna 2 Titulo  &nbsp</label>
+							<div class="col-md-4">
+								<input id="coluna2_titulo" name="coluna2_titulo" type="text" placeholder="" class="form-control input-md"  value="<?php echo $this->footer['coluna2_titulo']?>">
+							</div><br>
+							<label class="col-md-12 control-label" for="coluna2_descricao">Coluna 2 Descricao  &nbsp</label>
+							<div class="col-md-4">
+								<input id="coluna2_descricao" name="coluna2_descricao" type="text" placeholder="" class="form-control input-md" value="<?php echo $this->footer['coluna2_descricao']?>">
+							</div><br>
+							<label class="col-md-12 control-label" for="endereco">Endereço  &nbsp</label>
+							<div class="col-md-4">
+								<input id="endereco" name="endereco" type="text" placeholder="" class="form-control input-md" value="<?php echo $this->footer['endereco']?>">
+							</div><br>
+							<label class="col-md-12 control-label" for="telefone">Telefone  &nbsp</label>
+							<div class="col-md-4">
+								<input id="telefone" name="telefone" type="text" placeholder="" class="form-control input-md" value="<?php echo $this->footer['telefone']?>">
+							</div><br>
+							<label class="col-md-12 control-label" for="email">Email  &nbsp</label>
+							<div class="col-md-4">
+								<input id="email" name="email" type="text" placeholder="" class="form-control input-md" value="<?php echo $this->footer['email']?>">
+							</div><br>
+
+						</div>
+						<br>
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="caminho"></label>
+							<div class="col-md-4">
+								<button type="submit" id="" name="" class="btn btn-primary">Salvar</button>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    $(function() {
+
+        $('#summernote').summernote({
+            height: 500,
+            minHeight: null,
+            maxHeight: null,
+            focus: true,
+            callbacks: {
+                onImageUpload: function(files) {
+                    editor = $(this);
+                    doTheUpload(files[0], editor);
+                }
+            }
+        });
+
+        function doTheUpload(uploadedImage, myEditor) {
+            var myForm = new FormData();
+            myForm.append("imageField", uploadedImage);
+            $.ajax({
+                url: "/static/js/summernote-master/editor-upload.php",
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: myForm,
+                type: "post",
+                success: function(imageUrl) {
+                    var image = $('<img>').attr('src', imageUrl);
+                    $(myEditor).summernote("insertNode", image[0]);
+                },
+                error: function(myForm) {
+                    console.log(myForm);
+                }
+            });
+        }
+
+    });
+</script>

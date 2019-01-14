@@ -17,6 +17,9 @@ class site_IndexController extends Zend_Controller_Action
           array(
               'ativo = ?' => 1)
       );
+
+      $footer = new Application_Model_Atena_FooterMdl();
+      $this->view->footer = $footer->find(1);
     }
 
 
