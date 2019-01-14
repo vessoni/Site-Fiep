@@ -9,16 +9,16 @@
             <form action="" role="form" class="form-horizontal" id="form" method="post" enctype="multipart/form-data">
                 <fieldset>
 
-                    <legend><?php echo $this->categoria['nome'] ?></legend>
+                    <legend><?php echo $this->subcategoria['nome'] ?></legend>
                     <!-- Text input-->
                     <div class="form-group">
                         <label class="col-md-4 control-label" for="nome">Nome  &nbsp</label>
-                        <div class="col-md-4">
-                            <input id="nome" name="nome" type="text" placeholder="" class="form-control input-md" value="<?php echo $this->categoria['nome'] ?>">
+                        <div class="col-md-12">
+                            <input id="nome" name="nome" type="text" placeholder="" class="form-control input-md" value="<?php echo $this->subcategoria['nome'] ?>">
                         </div><br>
                         <label class="col-md-4 control-label" for="nome">Descricao  &nbsp</label><br>
                         <form method="post">
-                            <textarea id="summernote" name="descricao"><?php echo $this->categoria['descricao'] ?></textarea>
+                            <textarea id="summernote" name="descricao"><?php echo $this->subcategoria['descricao'] ?></textarea>
                         </form>
                     </div>
                     <br>
@@ -32,46 +32,6 @@
             </form>
 			</div>
 			<div class="col">
-				<legend>Subcategorias de <b><?php echo $this->categoria['nome'] ?></b> </legend>
-
-				<input type="text" id="myInput" onkeyup="myFunction()"  class="form-control input-md" placeholder="Procure pelo nome." title="Escreva o nome">
-
-				<table class="table" id="myTable">
-				  <thead>
-				    <tr>
-				      <th scope="col">Nome</th>
-				    </tr>
-				  </thead>
-				  <tbody>
-
-						<?php foreach ($this->subcategorias as $item): ?>
-				    <tr>
-				      <td><a href="/admin/subcategoria/<?php echo $item['idtipo'] ?>"> <?php echo $item['nome'] ?></a></td>
-				    </tr>
-						<?php endforeach; ?>
-				  </tbody>
-				</table>
-
-				<script>
-				function myFunction() {
-				  var input, filter, table, tr, td, i, txtValue;
-				  input = document.getElementById("myInput");
-				  filter = input.value.toUpperCase();
-				  table = document.getElementById("myTable");
-				  tr = table.getElementsByTagName("tr");
-				  for (i = 0; i < tr.length; i++) {
-				    td = tr[i].getElementsByTagName("td")[0];
-				    if (td) {
-				      txtValue = td.textContent || td.innerText;
-				      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-				        tr[i].style.display = "";
-				      } else {
-				        tr[i].style.display = "none";
-				      }
-				    }
-				  }
-				}
-				</script>
 
 
 	    </div>
